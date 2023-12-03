@@ -16,3 +16,8 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: |
+          for label in ${{ github.event.label.name }}; do
+            echo '$label'
+          done
+ 
