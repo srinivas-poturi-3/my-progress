@@ -1,7 +1,7 @@
 name: Check PR Labels
 
 on:
-  pull_request:
+  pull_request_target:
     types: [ opened, labeled, unlabeled, synchronize ]
 
 jobs:
@@ -11,6 +11,6 @@ jobs:
       - name: Checkout code
         uses: jesusvasquez333/verify-pr-label-action@v1.4.0
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: ${{ github.token }}
           valid-labels: 'bug, dependencies, devops, enhancement, feature, tests, documentation'
-          pull-request-number: '${{ github.event.pull_request.number }}'
+          pull-request-number: ${{ github.event.pull_request.number }}
