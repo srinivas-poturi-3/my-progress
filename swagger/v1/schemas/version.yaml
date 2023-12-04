@@ -1,0 +1,16 @@
+allOf:
+  - type: object
+    required:
+      - version
+      - build
+      - date
+    properties:
+      version:
+        type: string
+        example: v1.0.0
+      build:
+        type: string
+        example: '2145df3gg'
+      date:
+        type: string
+        example: '20230412.092342'

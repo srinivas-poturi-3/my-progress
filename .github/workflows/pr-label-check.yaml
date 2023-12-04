@@ -2,29 +2,15 @@ name: Check PR Labels
 
 on:
   pull_request:
-    types: [opened, labeled, unlabeled, synchronize]
+    types: [ opened, labeled, unlabeled, synchronize ]
 
 jobs:
   check-labels:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Check PR labels
-        run: |
-          # Specify your 5 labels here
-          valid_labels=("bug", "documentation" ,"enhancement" ,"invalid", "question")
-
-          # Check if any of the valid labels are present
-          for label in "${valid_labels[@]}"; do
-            echo "$label"
-            echo "${{github.event.label.name}}"
-            if contains(${{github.event.label.name}}, '$label'); then
-              echo "PR has the '$label' label."
-              exit 0
-            fi
-          done
-
-          echo "PR does not have any of the valid labels."
-          exit 1
+        uses: jesusvasquez333/verify-pr-label-action@v1.4.0
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          valid-labels: 'bug, dependencies, devops, enhancement, feature, tests, documentation'
+          pull-request-number: '${{ github.event.pull_request.number }}'
