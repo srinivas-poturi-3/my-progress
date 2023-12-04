@@ -1,0 +1,38 @@
+get:
+  tags:
+    - version
+  summary: Fetch version information
+  description: Returns the version info.
+  operationId: getVersion
+  security: []
+  response:
+    '200':
+      description: successful operation
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/version.yaml
+    '400':
+      description: invalid query parameters
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/version.yaml
+    '401':
+      description: Unauthorised
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/version.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/version.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/version.yaml

@@ -1,0 +1,22 @@
+openapi: 3.0.3
+info:
+  title: Templates
+  description: |-
+    This is a sample project to create and apply terraform templates to create the cloud infrastructure.
+  contact:
+    email: bhigerhino@gmail.com
+  version: 1.0.0
+servers:
+  - url: http://localhost:9999
+    description: templates service - development env
+    variables:
+      basePath:
+        default: /api/v1
+        description: URL prefix for endpoints
+tags:
+  - name: version
+    description: Fetch the latest version.
+paths:
+  /version:
+    $ref : ./paths/version.yaml
+
