@@ -1,0 +1,57 @@
+openapi: 3.0.3
+info:
+  title: Templates
+  description: This is a sample project to create and apply terraform templates to create the cloud infrastructure.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: bhigerhino@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: https://petstore3.swagger.io/api/v3
+tags:
+  - name: version
+    description: Fetch the latest version.
+paths:
+  /version:
+    get:
+      tags:
+        - version
+      summary: Fetch version information
+      description: Returns the version info.
+      operationId: getVersion
+      security: []
+      response:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: ../schemas/version.yaml
+        '400':
+          description: invalid query parameters
+          content:
+            application/json:
+              schema:
+                $ref: ../schemas/version.yaml
+        '401':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                $ref: ../schemas/version.yaml
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: ../schemas/version.yaml
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: ../schemas/version.yaml
+components: {}
