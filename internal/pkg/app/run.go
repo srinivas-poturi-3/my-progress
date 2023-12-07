@@ -1,9 +1,9 @@
 package app
 
 import (
+	"github.com/templates/internal/server"
 	"strings"
 	"sync"
-	"templates/internal/server"
 )
 
 const templatesName = "templates"
