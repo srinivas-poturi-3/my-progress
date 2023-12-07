@@ -1,4 +1,4 @@
-module templates
+module github.com/templates
 
 go 1.21
 

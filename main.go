@@ -1,12 +1,12 @@
 package main
 
 import (
+	"github.com/templates/internal/logs"
+	"github.com/templates/internal/pkg/app"
 	"os"
 	"os/signal"
 	"sync"
 	"syscall"
-	"templates/internal/logs"
-	"templates/internal/pkg/app"
 )
 
 var (
