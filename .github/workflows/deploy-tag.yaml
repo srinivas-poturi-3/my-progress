@@ -6,7 +6,8 @@ on:
       - '*'
   release:
     types:
-      - prerelease
+      - prereleased
+      - released
 
 jobs:
   check-labels:
