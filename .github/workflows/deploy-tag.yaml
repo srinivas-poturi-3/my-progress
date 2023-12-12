@@ -2,7 +2,12 @@ name: Push image to ECR
 
 on:
   push:
-    branches: [ release ]
+    tags:
+      - '*'
+  release:
+    types:
+      - prereleased
+      - released
 
 jobs:
   check-labels:
@@ -32,7 +37,7 @@ jobs:
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           REPOSITORY: templates
-          IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: ${{ github.ref_name }}
         run: |
           docker build -t  $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg="REF=$IMAGE_TAG" .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
