@@ -1,9 +1,12 @@
 name: Push image to ECR
 
 on:
-  create:
+  push:
     tags:
       - '*'
+  release:
+    types:
+      - prerelease
 
 jobs:
   check-labels:
