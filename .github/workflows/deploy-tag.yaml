@@ -39,5 +39,5 @@ jobs:
           REPOSITORY: templates
           IMAGE_TAG: ${{ github.ref_name }}
         run: |
-          docker build -t  $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg="REF=$IMAGE_TAG" .
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --build-arg="REF=$IMAGE_TAG" .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
