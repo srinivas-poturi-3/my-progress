@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: templates-app
+  namespace: development
+spec:
+  selector:
+    matchLabels:
+      app: templates-app
+  template:
+    metadata:
+      labels:
+        app: templates-app
+    spec:
+      containers:
+      - name: templates-app
+        image: bhige/templates:latest
+        args: ["REF","v1.0.1-dev"]
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred
